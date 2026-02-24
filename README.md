@@ -1,21 +1,51 @@
 # Router-Based Time-Limited Attendance System
 
-This repository now contains the implementation blueprint for a secure attendance platform that combines:
+A full-stack attendance system with:
 
-- **Time-limited attendance windows** (default 5 minutes)
-- **Router/LAN validation** (not SSID-only trust)
-- **JWT authentication + role-based access**
-- **Device binding** to reduce proxy attendance
+- React Native mobile app (`apps/mobile`)
+- Node.js + Express backend (`apps/backend`)
+- MongoDB persistence
+- JWT authentication
+- Device binding
+- Router/LAN subnet validation
+- Time-bound attendance sessions (default 5 minutes)
 
-## Included in this commit
+## Project Structure
 
-- Solution architecture summary
-- Backend-oriented folder structure blueprint
-- Versioned REST API contract (request/response + validation/error model)
+- `apps/backend`: REST API implementation
+- `apps/mobile`: React Native client app
+- `docs/api-contract.md`: endpoint contract
+- `docs/folder-structure-blueprint.md`: architecture layout
 
-## Next implementation phase
+## Backend Quick Start
 
-1. Bootstrap Node.js + Express backend from the blueprint.
-2. Add MongoDB models and indexes from API contract constraints.
-3. Implement auth/session/attendance routes with middleware.
-4. Add React Native app screens and network validation utilities.
+```bash
+cd apps/backend
+npm install
+npm start
+```
+
+Environment variables (optional):
+
+- `PORT` (default: `4000`)
+- `MONGODB_URI` (default: `mongodb://127.0.0.1:27017/attendance`)
+- `JWT_SECRET`
+- `JWT_EXPIRES_IN` (default: `1d`)
+- `DEFAULT_SESSION_MINUTES` (default: `5`)
+
+## Mobile Quick Start
+
+```bash
+cd apps/mobile
+npm install
+# run with standard React Native Android/iOS flow
+```
+
+## Implemented API Endpoints
+
+- `POST /api/v1/auth/register`
+- `POST /api/v1/auth/login`
+- `POST /api/v1/session/start` (teacher)
+- `GET /api/v1/session/active`
+- `POST /api/v1/attendance/mark` (student)
+- `GET /api/v1/attendance/session/:id` (teacher)
