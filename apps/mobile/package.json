@@ -2,17 +2,23 @@
   "name": "attendance-mobile",
   "version": "1.0.0",
   "private": true,
-  "main": "src/App.js",
+  "main": "expo/AppEntry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-community/netinfo": "^11.3.2",
     "axios": "^1.7.5",
+    "expo": "~51.0.28",
+    "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.5"
   },
-  "scripts": {
-    "start": "react-native start --config metro.config.js --projectRoot .",
-    "android": "react-native run-android",
-    "prestart": "node scripts/ensure-rn-files.js"
+  "devDependencies": {
+    "babel-preset-expo": "~11.0.10"
   }
 }

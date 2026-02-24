@@ -2,7 +2,7 @@
 
 A full-stack attendance system with:
 
-- React Native mobile app (`apps/mobile`)
+- Expo React Native mobile app (`apps/mobile`)
 - Node.js + Express backend (`apps/backend`)
 - MongoDB persistence
 - JWT authentication
@@ -13,7 +13,7 @@ A full-stack attendance system with:
 ## Project Structure
 
 - `apps/backend`: REST API implementation
-- `apps/mobile`: React Native client app (now includes native Android project files)
+- `apps/mobile`: Expo managed mobile client app
 - `docs/api-contract.md`: endpoint contract
 - `docs/folder-structure-blueprint.md`: architecture layout
 
@@ -33,18 +33,17 @@ Environment variables (optional):
 - `JWT_EXPIRES_IN` (default: `1d`)
 - `DEFAULT_SESSION_MINUTES` (default: `5`)
 
-## Mobile Quick Start (Android preview)
+## Mobile Quick Start (Expo)
 
 ```bash
 cd apps/mobile
 npm install
-npm start
-# in another terminal:
-npm run android
+npm run start
 ```
 
-If Android emulator cannot reach backend on `localhost`, update mobile API base URL in
-`apps/mobile/src/api/client.js` to your host-accessible address (e.g. `10.0.2.2` for Android Emulator).
+Use Expo Go on your phone to scan the QR code, or press `a` to launch Android from Expo CLI.
+
+If mobile cannot reach backend on `localhost`, update `apps/mobile/src/api/client.js` to your LAN IP.
 
 ## Implemented API Endpoints
 
@@ -54,10 +53,3 @@ If Android emulator cannot reach backend on `localhost`, update mobile API base 
 - `GET /api/v1/session/active`
 - `POST /api/v1/attendance/mark` (student)
 - `GET /api/v1/attendance/session/:id` (teacher)
-
-
-## Mobile Troubleshooting
-
-If you see `Missing script: "start"` or `Missing script: "android"`, follow `apps/mobile/README.md` to restore scripts and run the app on Windows.
-
-If Metro reports `No Metro config found`, run `node scripts/ensure-rn-files.js` inside `apps/mobile` and start again.

@@ -1,50 +1,36 @@
-# Mobile App Troubleshooting (Windows)
+# Mobile App (Expo)
 
-If `npm start` or `npm run android` says **Missing script**, your local `package.json`
-likely does not contain the expected scripts.
+This project now uses **Expo managed workflow** (no Android Studio native project required for preview).
 
-## 1) Verify scripts
+## Run with Expo Go
+
+From `apps/mobile`:
 
 ```powershell
-npm run
+npm install
+npx expo start
 ```
 
-You should see:
+Then:
+- press `a` to open Android emulator (if configured), or
+- scan the QR code in **Expo Go** on your phone.
 
-- `start`
-- `android`
-
-## 2) Fix scripts quickly
-
-Run this from `apps/mobile`:
+## Useful commands
 
 ```powershell
-npm pkg set scripts.start="react-native start"
-npm pkg set scripts.android="react-native run-android"
-```
-
-Then retry:
-
-```powershell
-npm start
+npm run start
 npm run android
+npm run ios
+npm run web
 ```
 
-## 3) If Android still fails
-
-- Ensure Android Studio + SDK + emulator are installed.
-- Run `npx react-native doctor` and fix reported issues.
-- In a second terminal, keep Metro running while executing `npm run android`.
-- If backend is on host machine and emulator cannot hit `localhost`, use `10.0.2.2` in `src/api/client.js`.
-
-
-## 4) If Metro says "No Metro config found"
-
-Run from `apps/mobile`:
+## If you see dependency/version warnings
 
 ```powershell
-node scripts/ensure-rn-files.js
-npm start
+npx expo install --fix
 ```
 
-`npm start` now uses an explicit config path (`--config metro.config.js`) and auto-creates missing RN root files if they were deleted accidentally.
+## Backend URL note
+
+If Expo app cannot reach local backend on `localhost`, set API base URL in
+`src/api/client.js` to your machine LAN IP (for physical device) or emulator-reachable host.
