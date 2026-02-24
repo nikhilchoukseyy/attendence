@@ -54,3 +54,8 @@ If Android emulator cannot reach backend on `localhost`, update mobile API base 
 - `GET /api/v1/session/active`
 - `POST /api/v1/attendance/mark` (student)
 - `GET /api/v1/attendance/session/:id` (teacher)
+
+
+## Mobile Troubleshooting
+
+If you see `Missing script: "start"` or `Missing script: "android"`, follow `apps/mobile/README.md` to restore scripts and run the app on Windows.
