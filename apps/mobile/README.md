@@ -36,3 +36,15 @@ npm run android
 - Run `npx react-native doctor` and fix reported issues.
 - In a second terminal, keep Metro running while executing `npm run android`.
 - If backend is on host machine and emulator cannot hit `localhost`, use `10.0.2.2` in `src/api/client.js`.
+
+
+## 4) If Metro says "No Metro config found"
+
+Run from `apps/mobile`:
+
+```powershell
+node scripts/ensure-rn-files.js
+npm start
+```
+
+`npm start` now uses an explicit config path (`--config metro.config.js`) and auto-creates missing RN root files if they were deleted accidentally.

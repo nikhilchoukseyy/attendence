@@ -59,3 +59,5 @@ If Android emulator cannot reach backend on `localhost`, update mobile API base 
 ## Mobile Troubleshooting
 
 If you see `Missing script: "start"` or `Missing script: "android"`, follow `apps/mobile/README.md` to restore scripts and run the app on Windows.
+
+If Metro reports `No Metro config found`, run `node scripts/ensure-rn-files.js` inside `apps/mobile` and start again.

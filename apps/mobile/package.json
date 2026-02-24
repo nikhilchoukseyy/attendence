@@ -11,7 +11,8 @@
     "react-native": "0.74.5"
   },
   "scripts": {
-    "start": "react-native start",
-    "android": "react-native run-android"
+    "start": "react-native start --config metro.config.js --projectRoot .",
+    "android": "react-native run-android",
+    "prestart": "node scripts/ensure-rn-files.js"
   }
 }
