@@ -13,7 +13,7 @@ A full-stack attendance system with:
 ## Project Structure
 
 - `apps/backend`: REST API implementation
-- `apps/mobile`: React Native client app
+- `apps/mobile`: React Native client app (now includes native Android project files)
 - `docs/api-contract.md`: endpoint contract
 - `docs/folder-structure-blueprint.md`: architecture layout
 
@@ -33,13 +33,18 @@ Environment variables (optional):
 - `JWT_EXPIRES_IN` (default: `1d`)
 - `DEFAULT_SESSION_MINUTES` (default: `5`)
 
-## Mobile Quick Start
+## Mobile Quick Start (Android preview)
 
 ```bash
 cd apps/mobile
 npm install
-# run with standard React Native Android/iOS flow
+npm start
+# in another terminal:
+npm run android
 ```
+
+If Android emulator cannot reach backend on `localhost`, update mobile API base URL in
+`apps/mobile/src/api/client.js` to your host-accessible address (e.g. `10.0.2.2` for Android Emulator).
 
 ## Implemented API Endpoints
 
