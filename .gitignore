@@ -2,3 +2,4 @@ node_modules/
 .env
 apps/*/node_modules/
 *.log
+.expo/

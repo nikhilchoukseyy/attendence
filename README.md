@@ -2,7 +2,7 @@
 
 A full-stack attendance system with:
 
-- React Native mobile app (`apps/mobile`)
+- Expo React Native mobile app (`apps/mobile`)
 - Node.js + Express backend (`apps/backend`)
 - MongoDB persistence
 - JWT authentication
@@ -13,7 +13,7 @@ A full-stack attendance system with:
 ## Project Structure
 
 - `apps/backend`: REST API implementation
-- `apps/mobile`: React Native client app
+- `apps/mobile`: Expo managed mobile client app
 - `docs/api-contract.md`: endpoint contract
 - `docs/folder-structure-blueprint.md`: architecture layout
 
@@ -33,13 +33,17 @@ Environment variables (optional):
 - `JWT_EXPIRES_IN` (default: `1d`)
 - `DEFAULT_SESSION_MINUTES` (default: `5`)
 
-## Mobile Quick Start
+## Mobile Quick Start (Expo)
 
 ```bash
 cd apps/mobile
 npm install
-# run with standard React Native Android/iOS flow
+npm run start
 ```
+
+Use Expo Go on your phone to scan the QR code, or press `a` to launch Android from Expo CLI.
+
+If mobile cannot reach backend on `localhost`, update `apps/mobile/src/api/client.js` to your LAN IP.
 
 ## Implemented API Endpoints
 
