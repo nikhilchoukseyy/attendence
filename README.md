@@ -41,9 +41,13 @@ npm install
 npm run start
 ```
 
-Use Expo Go on your phone to scan the QR code, or press `a` to launch Android from Expo CLI.
+Optional backend URL override for Expo clients:
 
-If mobile cannot reach backend on `localhost`, update `apps/mobile/src/api/client.js` to your LAN IP.
+```bash
+EXPO_PUBLIC_API_BASE_URL=http://<your-machine-ip>:4000/api/v1 npm run start
+```
+
+If Expo Go device cannot reach backend on `localhost`, use your machine LAN IP.
 
 ## Implemented API Endpoints
 
