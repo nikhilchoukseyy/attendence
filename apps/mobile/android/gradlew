@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-# Fallback gradle launcher for environments where wrapper bootstrap is unavailable.
-exec gradle "$@"
