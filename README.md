@@ -57,3 +57,6 @@ If Expo Go device cannot reach backend on `localhost`, use your machine LAN IP.
 - `GET /api/v1/session/active`
 - `POST /api/v1/attendance/mark` (student)
 - `GET /api/v1/attendance/session/:id` (teacher)
+
+
+If you hit React/renderer mismatch in Expo, reinstall mobile deps with pinned versions from `apps/mobile/package.json` and run `npx expo install --fix`.

@@ -2,7 +2,7 @@
 
 This is an **Expo React Native app** inside `apps/mobile`, compatible with the Node/Express backend in `apps/backend`.
 
-## 1) Install dependencies (latest Expo)
+## 1) Install dependencies (Expo (pinned compatible versions))
 
 From `apps/mobile`:
 
@@ -10,7 +10,7 @@ From `apps/mobile`:
 npm install
 ```
 
-> Note: this repo uses `expo: latest` so npm will install the newest Expo SDK available in your environment.
+> Note: this repo pins Expo/React/React Native to compatible versions to avoid React renderer mismatch errors.
 
 ## 2) Run Expo
 
@@ -45,4 +45,23 @@ If Expo warns about mismatched packages after install:
 
 ```powershell
 npx expo install --fix
+```
+
+
+## 5) Fix: "Incompatible React versions"
+
+If you see:
+
+- `react` and `react-native-renderer` version mismatch
+- `TypeError: Cannot read property "default" of undefined`
+
+clean and reinstall inside `apps/mobile`:
+
+```powershell
+rm -r -fo node_modules
+rm package-lock.json
+npm cache verify
+npm install
+npx expo install --fix
+npm run start -- --clear
 ```
