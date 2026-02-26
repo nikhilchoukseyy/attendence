@@ -65,3 +65,9 @@ npm install
 npx expo install --fix
 npm run start -- --clear
 ```
+
+
+## 6) Auto backend detection
+
+The app now auto-detects your Expo host IP and uses `http://<expo-host-ip>:4000/api/v1` by default.
+If needed, override manually with `EXPO_PUBLIC_API_BASE_URL`.

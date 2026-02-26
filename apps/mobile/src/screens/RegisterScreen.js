@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { register } from '../api/auth';
 import { getDeviceId } from '../services/deviceIdentity';
+import { getApiErrorMessage } from '../utils/errorMessage';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
@@ -15,7 +16,7 @@ export default function RegisterScreen() {
       await register({ name, email, password, role, device_id });
       Alert.alert('Success', 'Registered, please login');
     } catch (err) {
-      Alert.alert('Registration failed', err.response?.data?.error?.message || 'Unexpected error');
+      Alert.alert('Registration failed', getApiErrorMessage(err, 'Unexpected error while registering'));
     }
   };
 
